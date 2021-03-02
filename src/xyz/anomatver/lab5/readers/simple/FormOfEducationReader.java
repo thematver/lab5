@@ -1,7 +1,9 @@
 package xyz.anomatver.lab5.readers.simple;
 
 import xyz.anomatver.lab5.models.FormOfEducation;
+import xyz.anomatver.lab5.models.Semester;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  * Класс для считывания формы обучения.
@@ -21,17 +23,19 @@ public class FormOfEducationReader extends SimpleReader<FormOfEducation>
                 FormOfEducation.values()) {
             System.out.printf("%n%5s", s);
         }
+        scanner.nextLine();
         System.out.println();
-        System.out.println();
-        scanner.nextLine(); // ??? без него не работает
-        String formOfEducationString = scanner.nextLine();
 
-        for (FormOfEducation sem : FormOfEducation.values()) {
-            if (sem.name().equalsIgnoreCase(formOfEducationString)) {
-                value = sem;
-                break;
-            }
-        }
-        return value;
+        String formOfEducationString = scanner.nextLine();
+        FormOfEducation formOfEducation;
+try {
+  formOfEducation = FormOfEducation.valueOf(formOfEducationString);
+}
+catch (IllegalArgumentException e) {
+
+    throw new InputMismatchException();
+}
+
+return formOfEducation;
     }
 }

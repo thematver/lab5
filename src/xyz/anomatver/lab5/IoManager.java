@@ -30,8 +30,8 @@ public class IoManager {
     private final String filePath;
     private final Logger logger = Logger.getLogger("IoManager");
     private FileReader reader;
-    private final Scanner fileScanner;
-    private final Scanner consoleScanner;
+    private  Scanner fileScanner;
+    private  Scanner consoleScanner;
     private boolean readFromFile = false;
 
     public boolean isReadFromFile() {
@@ -65,7 +65,16 @@ public class IoManager {
     }
 
     public IoManager setReadFromFile(String fileName) throws FileNotFoundException {
-        reader = new FileReader(fileName);
+        try {
+
+            reader = new FileReader(fileName);
+            fileScanner = new Scanner(reader);
+        }
+        catch (NullPointerException e) {
+            logger.warning("Ошибка! Файл не найден.");
+        } catch (IOException e) {
+            logger.warning("Ошибка");
+        }
         this.readFromFile = true;
         return this;
     }

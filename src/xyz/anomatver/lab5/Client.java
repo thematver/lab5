@@ -25,8 +25,9 @@ public class Client {
         logger.info("Начало программы. Переменная окружения \"LAB5_FILE_PATH\"=" + System.getenv("LAB5_FILE_PATH"));
         try {
             ioManager = new IoManager(collectionManager);
-        } catch (IOException e) {
+        } catch (NullPointerException | IOException e) {
             logger.warning("Файл не найден!");
+            System.exit(0);
         }
 
 

@@ -17,11 +17,12 @@ public class StringReader extends SimpleReader<String> {
     public StringReader(Scanner scanner) {
         super(scanner);
         isNullable = false;
+        setPredicate(x -> !x.isEmpty());
     }
 
     @Override
     protected String readAttempt() {
-       String value = scanner.nextLine();
+       value = scanner.nextLine();
        if (!check()) {
            throw new InputMismatchException();
        }

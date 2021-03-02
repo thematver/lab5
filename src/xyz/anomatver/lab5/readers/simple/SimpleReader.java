@@ -37,7 +37,7 @@ public abstract class SimpleReader<T> {
     // 1 1
     // 0 1
     private boolean checkForNull() {
-        return !(isNullable && value != null);
+        return isNullable || value != null;
     }
 
     public SimpleReader<T> setPredicate(Predicate<T> predicate) {
@@ -54,6 +54,7 @@ public abstract class SimpleReader<T> {
                 value = readAttempt();
             } catch (InputMismatchException e) {
                 System.out.println("Неправильный ввод! Попробуй еще раз.");
+                scanner.nextLine();
                 continue;
             }
             break;

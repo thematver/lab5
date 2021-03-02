@@ -17,7 +17,12 @@ public class RemoveByIdCommand extends Command {
 
     @Override
     public void run(CollectionManager collectionManager, IoManager ioManager) {
-        collectionManager.remove(Integer.parseInt(args));
+        try {
+            collectionManager.remove(Integer.parseInt(args));
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Id должен быть типа int");
+        }
     }
 
 

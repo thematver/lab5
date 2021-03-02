@@ -1,6 +1,7 @@
 package xyz.anomatver.lab5.readers.simple;
 import xyz.anomatver.lab5.models.Semester;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  * Класс для считывания значения семестра.
@@ -22,8 +23,16 @@ public class SemesterReader extends SimpleReader<Semester>
         }
         System.out.println();
 
-        String semesterString = scanner.nextLine();
 
-        return Semester.valueOf(semesterString);
+
+        String semesterString = scanner.nextLine();
+        Semester semester;
+try {
+    semester =  Semester.valueOf(semesterString);
+}
+catch (IllegalArgumentException e) {
+throw  new InputMismatchException();
+}
+return semester;
     }
 }

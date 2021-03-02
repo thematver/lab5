@@ -24,6 +24,7 @@ public class FloatReader extends SimpleReader<Float> {
 
     @Override
     protected Float readAttempt() {
+
         value =  scanner.nextFloat();
         if (!check()) {
             throw new InputMismatchException();
