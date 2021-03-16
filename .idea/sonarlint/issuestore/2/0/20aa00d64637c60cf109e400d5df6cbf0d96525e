@@ -1,0 +1,8 @@
+
+S	java:S1063"9Replace this use of System.out or System.err by a logger.(Ü³µúüÿÿÿÿ
+s	java:S1354"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆžÿÿÿÿÿ
+7
+java:S1116"Remove this empty statement.(ôŸŽìúÿÿÿÿ
+S	java:S1068"9Replace this use of System.out or System.err by a logger.(®ç‘´úÿÿÿÿ
+T
+java:S5993"9Change the visibility of this constructor to "protected".(Ò¿¾®ýÿÿÿÿ
